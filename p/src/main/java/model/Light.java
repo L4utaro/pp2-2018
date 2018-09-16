@@ -1,6 +1,6 @@
 package model;
 
-public class Light implements ObjectGraphic{
+public class Light implements IObjectGraphic{
 
 	public Light() {
 		

@@ -11,8 +11,9 @@ public class Game {
     }
 
     public void initMap() {
-        CreateMap create = new CreateMap(Constants.ROUTE_PROPERTIES);
+        CreateMap create = new CreateMap(Constants.ROUTE_MAP_PROPERTIES);
         this.map = create.getMap();
+        this.map.getBoard().printBoard();
     }
 
 	public Map getMap() {

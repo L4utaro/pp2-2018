@@ -14,10 +14,9 @@ public class CreateMap {
 	
 	private void createMap() {
 		map = new Builder(mapProperties.getElectionMap().getMapSize())
-				.withStructureRectangle(mapProperties.getElectionMap().getRectangle1())
-				.withStructureRectangle(mapProperties.getElectionMap().getRectangle2())
-				.withStructureLine(mapProperties.getElectionMap().getLine1())
-				.withStructureLine(mapProperties.getElectionMap().getLine2())
+				.whitRoadPossible(mapProperties.getElectionMap().getPosOfPathPossible())
+				.whitLights(mapProperties.getElectionMap().getPosLight())
+				.whitAvatar(mapProperties.getElectionMap().getPosAvatar())
 				.build();
 	}
 

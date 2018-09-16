@@ -6,10 +6,10 @@ import java.util.List;
 public class ElectionMap {
 	private Point mapSize;
 	private Point posAvatar;
-	private Point posLight;
+	private List<Point> posLight;
 	private List<Point> posOfPathPossible;
 	
-	public ElectionMap(Point mapSize, Point posAvatar, Point posLight, List<Point> posOfPathPossible) {
+	public ElectionMap(Point mapSize, Point posAvatar, List<Point> posLight, List<Point> posOfPathPossible) {
 		this.mapSize = mapSize;
 		this.posAvatar = posAvatar;
 		this.posLight = posLight;
@@ -32,11 +32,11 @@ public class ElectionMap {
 		this.posAvatar = posAvatar;
 	}
 
-	public Point getPosLight() {
+	public List<Point> getPosLight() {
 		return posLight;
 	}
 
-	public void setPosLight(Point posLight) {
+	public void setPosLight(List<Point> posLight) {
 		this.posLight = posLight;
 	}
 

@@ -22,7 +22,7 @@ public class LectorJson {
 		try {
 			obj = parser.parse(new FileReader(routeCodeJSON));
 			JSONObject jsonObject = (JSONObject) obj;
-			return (double) jsonObject.get(keyValue);
+			return (Double) jsonObject.get(keyValue);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

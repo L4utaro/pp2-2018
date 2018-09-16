@@ -1,5 +1,5 @@
 package enums;
 
 public enum TypeOfBox {
-	CAMINABLE, NO_CAMINABLE;
+	WALK, NO_WALK;
 }

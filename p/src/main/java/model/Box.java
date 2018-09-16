@@ -1,12 +1,14 @@
 package model;
 
+import org.eclipse.jdt.annotation.Nullable;
+
 import enums.TypeOfBox;
 
 public class Box {
 	private TypeOfBox typeOfBox;
-	private ObjectGraphic objectGraphic;
+	private IObjectGraphic objectGraphic;
 	
-	public Box (TypeOfBox typeOfBox, ObjectGraphic objectGraphic) {
+	public Box (TypeOfBox typeOfBox, IObjectGraphic objectGraphic) {
 		this.typeOfBox = typeOfBox;
 		this.objectGraphic = objectGraphic;
 	}
@@ -18,12 +20,13 @@ public class Box {
 	public void setTypeOfBox(TypeOfBox typeOfBox) {
 		this.typeOfBox = typeOfBox;
 	}
-
-	public ObjectGraphic getObjectGraphic() {
+	
+	@Nullable
+	public IObjectGraphic getObjectGraphic() {
 		return objectGraphic;
 	}
 
-	public void setObjectGraphic(ObjectGraphic objectGraphic) {
+	public void setObjectGraphic(IObjectGraphic objectGraphic) {
 		this.objectGraphic = objectGraphic;
 	}	
 }
