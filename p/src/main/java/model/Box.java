@@ -1,7 +1,5 @@
 package model;
 
-import org.eclipse.jdt.annotation.Nullable;
-
 import enums.TypeOfBox;
 
 public class Box {
@@ -21,7 +19,6 @@ public class Box {
 		this.typeOfBox = typeOfBox;
 	}
 	
-	@Nullable
 	public IObjectGraphic getObjectGraphic() {
 		return objectGraphic;
 	}

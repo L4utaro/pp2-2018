@@ -8,47 +8,56 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import main.Constants;
+import validators.ValidatorProperties;
+
 public class MapProperties {
 	private Properties properties;
 	private ElectionMap electionMap;
+	private ValidatorProperties validatorProperties;
 
 	public MapProperties(String route_properties) {
 		this.properties = new Properties();
 		loadProperties(route_properties);
+		this.validatorProperties = new ValidatorProperties(this.properties);
+		validateProperties();
 		loadDataProperties();
 	}
-	
-	private void loadDataProperties() {
-		Point mapSize = loadSizeMap();
-		Point posAvatar = loadPositionAvatar();
-		List<Point> posLight = loadPositionsOfPoint("posLight");
-		List<Point> posOfPathPossible = loadPositionsOfPoint("pathPossible");
+
+	public void validateProperties() {
+		if(!this.validatorProperties.isAValidProperties()) {
+			throw new IllegalArgumentException("the properties no contains all parameters");
+		}
+	}
+
+	public void loadDataProperties() {
+		Point mapSize = loadPosition(Constants.NAME_SIZEMAP_PROPERTIES);
+		Point posAvatar = loadPosition(Constants.NAME_POSAVATAR_PROPERTIES);
+		List<Point> posLight = loadPositionsOfPoint(Constants.NAME_POSLIGHT_PROPERTIES);
+		List<Point> posOfPathPossible = loadPositionsOfPoint(Constants.NAME_PATHPOSSIBLE_PROPERTIES);
 		this.electionMap = new ElectionMap(mapSize, posAvatar, posLight, posOfPathPossible);
 	}
 
-	private Point loadSizeMap() {
-		return new Point(Integer.parseInt(properties.getProperty("heightMap")),
-				Integer.parseInt(properties.getProperty("widthMap")));
-	}
-	
-	private Point loadPositionAvatar() {
-		return getPointOfProperties("posAvatar");
+	public Point loadPosition(String name) {
+		return getPointOfProperties(name);
 	}
 
-	private List<Point> loadPositionsOfPoint(String parameter) {
+	public List<Point> loadPositionsOfPoint(String parameter) {
 		List<Point> posOfPathPossible = new ArrayList<Point>();
-		for(int i = 1; i < properties.getProperty(parameter).length()-2; i++) {
-			posOfPathPossible.add(new Point(properties.getProperty(parameter).charAt(i+1) - '0', properties.getProperty(parameter).charAt(i+3) - '0'));
-			i+=6;
+		for (int i = 1; i < properties.getProperty(parameter).length() - 2; i++) {
+			posOfPathPossible.add(new Point(properties.getProperty(parameter).charAt(i + 1) - '0',
+					properties.getProperty(parameter).charAt(i + 3) - '0'));
+			i += 6;
 		}
 		return posOfPathPossible;
 	}
-	
-	private Point getPointOfProperties(String parameter) {
-		return new Point(properties.getProperty(parameter).charAt(1) - '0', properties.getProperty(parameter).charAt(3) - '0');
+
+	public Point getPointOfProperties(String parameter) {
+		return new Point(properties.getProperty(parameter).charAt(1) - '0',
+				properties.getProperty(parameter).charAt(3) - '0');
 	}
 
-	private void loadProperties(String route_properties) {
+	public void loadProperties(String route_properties) {
 		try {
 			this.properties.load(new FileReader(route_properties));
 		} catch (FileNotFoundException e) {

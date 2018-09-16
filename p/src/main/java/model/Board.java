@@ -41,8 +41,7 @@ public class Board {
 				if (boxes[x][y] != null) {
 					if (boxes[x][y].getTypeOfBox().equals(TypeOfBox.NO_WALK)) {
 						file = file + "[ NO_WALK]";
-						//aca tengo problema porque getObject == Null,
-					} else if (!(boxes[x][y].getObjectGraphic()).equals(null)) {
+					} else if (!(boxes[x][y].getObjectGraphic() == null)) {
 						file = file + "[" +boxes[x][y].getObjectGraphic().getClass().getName() + "]";
 					} else {
 						file = file + "[ WALK]";
