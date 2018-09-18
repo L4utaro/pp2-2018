@@ -16,10 +16,10 @@ public class Board {
 	}
 
 	public boolean isOcupatePosition(Point box) {
-		if ((boxes.length <= box.x) || (0 > box.x) || (boxes[0].length <= box.y) || (0 > box.y)) {
+		if ((boxes.length < box.x) || (0 > box.x) || (boxes[0].length < box.y) || (0 > box.y)) {
 			throw new IllegalArgumentException("No se puede acceder a la casilla, excede el limite del mapa");
 		}
-		return boxes[box.x][box.y] != null;
+		return boxes[box.x-1][box.y-1] != null;
 	}
 
 	public Box getBox(Point pointBox) {

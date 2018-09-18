@@ -19,7 +19,7 @@ public class AddBox {
 		autoCompleteBoxesEmpty();
 	}
 
-	public void addboxes(List<Point> posOfPathPossible) {
+	public void addBoxesWalk(List<Point> posOfPathPossible) {
 		for (Point position : posOfPathPossible) {
 			if (!this.validatorBoard.isValidPositionForBox(position)) {
 				throw new IllegalArgumentException("It is not a valid box to add an ObjectGraphic");
@@ -68,5 +68,9 @@ public class AddBox {
 			}
 		}
 		return true;
+	}
+
+	public Board getBoard() {
+		return board;
 	}
 }

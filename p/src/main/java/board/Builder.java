@@ -46,7 +46,7 @@ public class Builder {
 	}
 
 	public void addRoadToMap(Board board, List<Point> posOfPathPossible) {
-		this.addBox.addboxes(posOfPathPossible);
+		this.addBox.addBoxesWalk(posOfPathPossible);
 	}
 
 	public Map build() {
