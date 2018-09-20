@@ -16,7 +16,7 @@ public class LectorJson {
 		this.routeCodeJSON = routeCodeJSON;
 	}
 
-	public double getIntOfJson(String keyValue) {
+	public double getDoubleOfJson(String keyValue) {
 		JSONParser parser = new JSONParser();
 		Object obj;
 		try {
@@ -40,7 +40,7 @@ public class LectorJson {
 		try {
 			obj = parser.parse(new FileReader(routeCodeJSON));
 			JSONObject jsonObject = (JSONObject) obj;
-			JSONArray leng= (JSONArray) jsonObject.get("Boxes");
+			JSONArray leng= (JSONArray) jsonObject.get(keyValue);
 			return leng;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

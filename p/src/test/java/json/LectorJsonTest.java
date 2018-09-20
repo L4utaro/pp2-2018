@@ -12,19 +12,19 @@ public class LectorJsonTest {
 	@Test(expected=NullPointerException.class)
 	public void getIntOfJsonTest1() {
 		LectorJson lector = new LectorJson(Constants.ROUTE_JSON_INSTRUCTIONS);
-		assertNotNull(lector.getIntOfJson("sd"));
+		assertNotNull(lector.getDoubleOfJson("sd"));
 	}
 
 	@Test(expected=AssertionError.class)
 	public void getIntOfJsonTest2() {
 		LectorJson lector = new LectorJson("sgsdfsdf");
-		assertNull(lector.getIntOfJson("sd"));
+		assertNull(lector.getDoubleOfJson("sd"));
 	}
 
 	@Test
 	public void getIntOfJsonTest3() {
 		LectorJson lector = new LectorJson(Constants.ROUTE_JSON_INSTRUCTIONS);
-		assertNotNull(lector.getIntOfJson("Width"));
+		assertNotNull(lector.getDoubleOfJson("Width"));
 	}
 	
 	@Test
