@@ -16,7 +16,7 @@ public class Game {
 		CreateMap create = new CreateMap(Constants.ROUTE_MAP_PROPERTIES);
 		this.map = create.getMap();
 		this.map.getBoard().printBoard();
-		this.jsonController = new JsonController(Constants.ROUTE_JSON_INSTRUCTIONS);
+		this.jsonController = new JsonController(Constants.ROUTE_JSON_INSTRUCTIONS_1);
 		this.jsonController.createColecctionOfActions();
 		System.out.println("Cantidad de acciones: " + this.jsonController.getActions().size());
 	}

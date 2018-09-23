@@ -11,7 +11,7 @@ public class LectorJsonTest {
 
 	@Test(expected=NullPointerException.class)
 	public void getIntOfJsonTest1() {
-		LectorJson lector = new LectorJson(Constants.ROUTE_JSON_INSTRUCTIONS);
+		LectorJson lector = new LectorJson(Constants.ROUTE_JSON_INSTRUCTIONS_1);
 		assertNotNull(lector.getDoubleOfJson("sd"));
 	}
 
@@ -23,13 +23,13 @@ public class LectorJsonTest {
 
 	@Test
 	public void getIntOfJsonTest3() {
-		LectorJson lector = new LectorJson(Constants.ROUTE_JSON_INSTRUCTIONS);
+		LectorJson lector = new LectorJson(Constants.ROUTE_JSON_INSTRUCTIONS_1);
 		assertNotNull(lector.getDoubleOfJson("Width"));
 	}
 	
 	@Test
 	public void getListOfJsonTest1() {
-		LectorJson lector = new LectorJson(Constants.ROUTE_JSON_INSTRUCTIONS);
+		LectorJson lector = new LectorJson(Constants.ROUTE_JSON_INSTRUCTIONS_1);
 		assertNotNull(lector.getListOfJson("sd"));
 	}
 
@@ -41,7 +41,7 @@ public class LectorJsonTest {
 
 	@Test
 	public void getListOfJsonTest3() {
-		LectorJson lector = new LectorJson(Constants.ROUTE_JSON_INSTRUCTIONS);
+		LectorJson lector = new LectorJson(Constants.ROUTE_JSON_INSTRUCTIONS_1);
 		assertNotNull(lector.getListOfJson("Points"));
 	}
 }
