@@ -18,7 +18,7 @@ public class Game {
 		this.map.getBoard().printBoard();
 		this.jsonController = new JsonController(Constants.ROUTE_JSON_INSTRUCTIONS_1);
 		this.jsonController.createColecctionOfActions();
-		System.out.println("Cantidad de acciones: " + this.jsonController.getActions().size());
+		System.out.println("Cantidad de acciones: " + this.jsonController.getActionsCommand().size());
 	}
 
 	public Map getMap() {

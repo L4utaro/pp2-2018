@@ -5,44 +5,49 @@ import java.util.List;
 
 import org.json.simple.JSONArray;
 
-import enums.Actions;
-import json.LectorJson;
+import executors.CommandLeft;
+import executors.CommandLight;
+import executors.CommandMove;
+import executors.CommandRight;
+import executors.ICommand;
+import lectors.LectorJson;
 import validators.ValidatorJson;
 
 public class JsonController {
 	private LectorJson lectorJson;
 	private JSONArray actionsJson;
 	private ValidatorJson validatorJson;
-	private List<Actions> actions;
+	private List<ICommand> actionsCommand;
 
 	public JsonController(String routeJson) {
 		this.lectorJson = new LectorJson(routeJson);
 		this.actionsJson = (JSONArray) this.lectorJson.getListOfJson("actions");
 		this.validatorJson = new ValidatorJson();
-		this.actions = new ArrayList<Actions>();
+		this.actionsCommand = new ArrayList<ICommand>();
 	}
 
 	public void createColecctionOfActions() {
 		if (this.validatorJson.validateInstructionsOfJsonArray(this.actionsJson)) {
-			System.out.println("las instrucciones son validas");
 			for (int i = 0; i < this.actionsJson.size(); i++) {
 				addAction(actionsJson.get(i).toString());
 			}
+		}else {
+			throw new IllegalArgumentException("The actions.json contains wrong parameters");
 		}
 	}
 
 	public void addAction(String action) {
 		if (action.equals("avanzar"))
-			this.actions.add(Actions.MOVE);
+			this.actionsCommand.add(new CommandMove());
 		else if (action.equals("izquierda"))
-			this.actions.add(Actions.LEFT);
+			this.actionsCommand.add(new CommandLeft());
 		else if (action.equals("derecha"))
-			this.actions.add(Actions.RIGHT);
+			this.actionsCommand.add(new CommandRight());
 		else if (action.equals("luz"))
-			this.actions.add(Actions.LIGHT);
+			this.actionsCommand.add(new CommandLight());
 	}
 
-	public List<Actions> getActions() {
-		return actions;
+	public List<ICommand> getActionsCommand() {
+		return actionsCommand;
 	}
 }

@@ -25,7 +25,6 @@ public class ValidatorBoard implements IValidator {
 
 	public boolean isValidPositionForObjectGraphic(Point position) {
 		if (this.board.getBox(position).getTypeOfBox().equals(TypeOfBox.NO_WALK)) {
-			System.out.println("yes");
 			return false;
 		}
 		return true;
