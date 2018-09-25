@@ -11,7 +11,7 @@ import org.json.simple.parser.ParseException;
 
 import validators.ValidatorLectorJson;
 
-public class LectorJson {
+public class LectorJson implements ILector{
 	private String routeCodeJSON;
 	private ValidatorLectorJson validatorLectorJson;
 
@@ -25,23 +25,6 @@ public class LectorJson {
 		if (!this.validatorLectorJson.isValidRoute(this.routeCodeJSON)) {
 			throw new IllegalArgumentException("This is not a valid route of actions.json");
 		}
-	}
-
-	public double getDoubleOfJson(String keyValue) {
-		JSONParser parser = new JSONParser();
-		Object obj;
-		try {
-			obj = parser.parse(new FileReader(routeCodeJSON));
-			JSONObject jsonObject = (JSONObject) obj;
-			return (Double) jsonObject.get(keyValue);
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-		return 0;
 	}
 
 	@SuppressWarnings("unchecked")
