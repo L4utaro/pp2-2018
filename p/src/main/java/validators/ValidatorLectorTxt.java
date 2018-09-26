@@ -1,10 +1,20 @@
 package validators;
 
-public class ValidatorLectorTxt implements IValidator{
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
+public class ValidatorLectorTxt implements IValidator {
+
+	@SuppressWarnings({ "unused", "resource" })
 	public boolean isValidRoute(String routeTxt) {
-		// TODO Auto-generated method stub
-		return false;
+		BufferedReader reader = null;
+		try {
+			reader = new BufferedReader(new FileReader(routeTxt));
+		} catch (IOException e) {
+			return false;
+		}
+		return true;
 	}
 
 }

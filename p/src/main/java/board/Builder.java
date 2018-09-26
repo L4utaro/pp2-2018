@@ -3,9 +3,9 @@ package board;
 import java.awt.Point;
 import java.util.List;
 
+import enums.LightStatus;
 import model.Avatar;
 import model.Board;
-import model.Light;
 import model.Map;
 
 public class Builder {
@@ -38,7 +38,7 @@ public class Builder {
 	}
 
 	public void addLightsToMap(List<Point> posOfLights) {
-		this.addBox.addLights(posOfLights, new Light());
+		this.addBox.addLights(posOfLights, LightStatus.OFF);
 	}
 
 	public void addAvatarToMap(Board board2, Point position) {

@@ -1,7 +1,6 @@
 package lectors;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
@@ -11,9 +10,6 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import com.sun.org.apache.xerces.internal.impl.dv.ValidatedInfo;
-
-import validators.ValidatorLectorJson;
 import validators.ValidatorLectorTxt;
 
 public class LectorTxt implements ILector{
@@ -25,6 +21,7 @@ public class LectorTxt implements ILector{
 		this.json = "";
 		this.routeTxt = routeTxt;
 		this.validatorLectorTxt = new ValidatorLectorTxt();
+		isAValidRoute();
 	}
 	
 	public void isAValidRoute() {
@@ -46,16 +43,9 @@ public class LectorTxt implements ILector{
 		        line = reader.readLine();
 		    }
 		    this.json = sb.toString();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			reader.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-		    try {
-				reader.close();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 		}
 	}
 	

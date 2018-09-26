@@ -2,15 +2,16 @@ package criteriaOfAcceptance1;
 
 import static org.junit.Assert.assertEquals;
 
+
 import java.awt.Point;
 
 import org.junit.Test;
 
 import board.CreateMap;
+import enums.LightStatus;
 import enums.TypeOfBox;
 import main.Constants;
 import model.Avatar;
-import model.Light;
 import model.Map;
 
 public class UserStory01 {
@@ -74,8 +75,8 @@ public class UserStory01 {
 		this.map = create.getMap();
 		assertEquals(this.map.getBoard().getBox(new Point(1, 1)).getObjectGraphic().getClass().getName(),
 				new Avatar().getClass().getName());
-		assertEquals(this.map.getBoard().getBox(new Point(3, 3)).getObjectGraphic().getClass().getName(),
-				new Light().getClass().getName());
+		assertEquals(this.map.getBoard().getBox(new Point(3, 3)).getLightStatus(),
+				LightStatus.OFF);
 		assertEquals(this.map.getBoard().getBox(new Point(1, 1)).getTypeOfBox(), TypeOfBox.WALK);
 		assertEquals(this.map.getBoard().getBox(new Point(3, 3)).getTypeOfBox(), TypeOfBox.WALK);
 	}

@@ -1,19 +1,32 @@
 package model;
 
-import java.awt.Point;
+import enums.Orientation;
 
 public class Avatar implements IObjectGraphic{
-	private Point position;
-	
+	private Orientation orientation;
+	private Integer numOfOrientation2;
 	public Avatar() {
+		this.orientation = Orientation.RIGHT;
+		this.numOfOrientation2 = 90;
+	}
+
+	public void turnLeft() {
+		this.numOfOrientation2 -=90;
+	}
+
+	public void turnRight() {
+		this.numOfOrientation2 +=90;
+	}
+	
+	public void move() {
 		
 	}
-
-	public Point getPosition() {
-		return position;
+	
+	public Orientation getOrientation() {
+		return orientation;
 	}
 
-	public void setPosition(Point position) {
-		this.position = position;
+	public void setOrientation(Orientation orientation) {
+		this.orientation = orientation;
 	}
 }

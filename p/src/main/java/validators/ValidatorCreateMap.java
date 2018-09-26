@@ -3,9 +3,9 @@ package validators;
 import java.awt.Point;
 
 import classProperties.MapProperties;
+import enums.LightStatus;
 import enums.TypeOfBox;
 import model.Avatar;
-import model.Light;
 import model.Map;
 
 public class ValidatorCreateMap implements IValidator {
@@ -35,7 +35,7 @@ public class ValidatorCreateMap implements IValidator {
 
 	public boolean checkLights() {
 		for(Point pos: this.mapProperties.getElectionMap().getPosLight()) {
-			if(this.map.getBox(pos).getObjectGraphic().equals(new Light())) {
+			if(this.map.getBox(pos).getObjectGraphic().equals(LightStatus.OFF)) {
 				return false;
 			}
 		}

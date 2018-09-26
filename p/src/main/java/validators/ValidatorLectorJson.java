@@ -1,6 +1,5 @@
 package validators;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -15,11 +14,7 @@ public class ValidatorLectorJson implements IValidator{
 		Object obj;
 		try {
 			obj = parser.parse(new FileReader(routeCodeJSON));
-		} catch (FileNotFoundException e) {
-			return false;
-		} catch (IOException e) {
-			return false;
-		} catch (ParseException e) {
+		} catch (IOException | ParseException e) {
 			return false;
 		}
 		return true;

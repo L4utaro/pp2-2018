@@ -3,6 +3,8 @@ package model;
 import java.awt.Point;
 
 import board.Builder;
+import enums.LightStatus;
+import enums.TypeOfBox;
 
 public class Map {
 	private Board board;
@@ -19,31 +21,39 @@ public class Map {
 		return board.getBox(pointBox);
 	}
 	
-//	public void addBox(Point pointBox,Object object) {
-//		board.addBox(pointBox,object);
-//	}
+	public void addBoxAvatar(Point pointBox, TypeOfBox typeOfBox, IObjectGraphic objectGraphic) {
+		board.addBoxAvatar(pointBox, typeOfBox, objectGraphic);
+	}
 
+	public void addBoxLight(Point pointBox, TypeOfBox typeOfBox,LightStatus lightStatus) {
+		board.addBoxLight(pointBox, typeOfBox, lightStatus);
+	}
+	
 	public void deleteBox(Point pointBox) {
 		board.deleteBox(pointBox);
 	}
 	
-//	public void printMap() {
-//		this.board.printBoard();
-//	}
+	public void printMap() {
+		this.board.printBoard();
+	}
 	
 	public Point getLimitsBoard() {
 		return board.getLimitsBoard();
 	}
-	
-	public Integer getRowsSize() {
-		return this.board.size();
-	}
-
-	public Integer getColumnsSize() {
-		return this.board.getColumnsSize();
-	}
 
 	public boolean isOcupatePosition(Point point) {
 		return this.board.isOcupatePosition(point);
+	}
+
+	public Point getAvatarPos() {
+		return this.board.getAvatarPos();
+	}
+
+	public void addBoxObjectGraphic(Point pointBox, IObjectGraphic objectGraphic) {
+		this.board.getBoxes()[pointBox.x] [pointBox.y].setObjectGraphic(objectGraphic);
+	}
+	
+	public void deleteObjectGraphic(Point position) {
+		getBox(position).setObjectGraphic(null);
 	}
 }

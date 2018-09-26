@@ -10,10 +10,10 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import enums.LightStatus;
 import enums.TypeOfBox;
 import model.Avatar;
 import model.Board;
-import model.Light;
 
 public class AddBoxTest {
 	private AddBox addBox;
@@ -64,7 +64,7 @@ public class AddBoxTest {
 		this.addBox.addBoxWalk(new Point(1,1));
 		List<Point> posOfLights = new ArrayList<Point>();
 		posOfLights.add(new Point (1,1));
-		this.addBox.addLights(posOfLights, new Light());
+		this.addBox.addLights(posOfLights, LightStatus.OFF);
 		assertNotNull(this.board.getBox(new Point(1,1)).getObjectGraphic());
 	}
 	

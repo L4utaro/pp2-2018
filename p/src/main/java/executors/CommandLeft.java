@@ -1,10 +1,17 @@
 package executors;
 
-public class CommandLeft implements ICommand{
+import model.Map;
+import enums.Orientation;
+import model.Avatar;
 
-	public void executeCommand() {
-		// TODO Auto-generated method stub
-		
+public class CommandLeft implements ICommand {
+
+	public void executeCommand(Map map) {
+		makeChangeOfOrientation((Avatar) map.getBox(map.getAvatarPos()).getObjectGraphic());
 	}
 
+	public void makeChangeOfOrientation(Avatar avatar) {
+		avatar.turnLeft();
+		avatar.setOrientation(Orientation.LEFT);
+	}
 }

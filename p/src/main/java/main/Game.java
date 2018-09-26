@@ -9,6 +9,7 @@ public class Game {
 	private Map map;
 	private JsonController jsonController;
 	private TxtController txtController;
+	
 	public Game() {
 
 	}

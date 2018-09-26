@@ -1,14 +1,20 @@
 package model;
 
 import java.awt.Point;
+import java.util.ArrayList;
+import java.util.List;
 
+import enums.LightStatus;
 import enums.TypeOfBox;
 
 public class Board {
 	private Box[][] boxes;
-
+	private Point avatarPos;
+	private List<Point> listOfLightPos;
+	
 	public Board(Point sizeBoard) {
-		boxes = new Box[sizeBoard.x][sizeBoard.y];
+		this.boxes = new Box[sizeBoard.x][sizeBoard.y];
+		this.listOfLightPos = new ArrayList<Point>();
 	}
 
 	public Box[][] getBoxes() {
@@ -30,8 +36,19 @@ public class Board {
 		boxes[pointBox.x - 1][pointBox.y - 1] = null;
 	}
 
-	public void addBox(Point pointBox, TypeOfBox typeOfBox, IObjectGraphic objectGraphic) {
-		boxes[pointBox.x - 1][pointBox.y - 1] = new Box(typeOfBox, objectGraphic);
+
+	public void addBoxAvatar(Point pointBox, TypeOfBox typeOfBox, IObjectGraphic objectGraphic) {
+		this.avatarPos = pointBox;
+		this.boxes[pointBox.x - 1][pointBox.y - 1] = new Box(typeOfBox, objectGraphic);
+	}
+
+	public void addBoxLight(Point pointBox, TypeOfBox typeOfBox,LightStatus lightStatus) {
+		this.listOfLightPos.add(pointBox);
+		this.boxes[pointBox.x - 1][pointBox.y - 1] = new Box(typeOfBox, lightStatus);
+	}
+	
+	public void addBox(Point pointBox, TypeOfBox typeOfBox) {
+		this.boxes[pointBox.x - 1][pointBox.y - 1] = new Box(typeOfBox);
 	}
 
 	public void printBoard() {
@@ -54,16 +71,20 @@ public class Board {
 			file = "";
 		}
 	}
-
+	
 	public Point getLimitsBoard() {
 		return new Point(boxes.length, boxes[0].length);
 	}
 
-	public Integer size() {
-		return getBoxes().length;
+	public Point getAvatarPos() {
+		return avatarPos;
 	}
 
-	public Integer getColumnsSize() {
-		return getBoxes()[0].length;
+	public void setAvatarPos(Point avatarPos) {
+		this.avatarPos = avatarPos;
+	}
+
+	public List<Point> getListOfLightPos() {
+		return listOfLightPos;
 	}
 }

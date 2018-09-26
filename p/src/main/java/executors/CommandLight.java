@@ -1,10 +1,12 @@
 package executors;
 
+import model.Map;
+
 public class CommandLight implements ICommand{
 
-	public void executeCommand() {
-		// TODO Auto-generated method stub
-		
+	@Override
+	public void executeCommand(Map map) {
+		map.getBox(map.getAvatarPos()).changeStateLight();
 	}
 
 }
