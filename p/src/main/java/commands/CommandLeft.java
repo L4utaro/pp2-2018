@@ -12,6 +12,5 @@ public class CommandLeft implements ICommand {
 
 	public void makeChangeOfOrientation(Avatar avatar) {
 		avatar.turnLeft();
-		avatar.setOrientation(Orientation.LEFT);
 	}
 }

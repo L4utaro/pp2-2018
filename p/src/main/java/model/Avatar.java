@@ -1,32 +1,39 @@
 package model;
 
-import enums.Orientation;
+//import enums.Orientation;
 
-public class Avatar implements IObjectGraphic{
-	private Orientation orientation;
-	private Integer numOfOrientation2;
+public class Avatar implements IObjectGraphic {
+	// private Orientation orientation;
+	private Integer numOfOrientation;
+
 	public Avatar() {
-		this.orientation = Orientation.RIGHT;
-		this.numOfOrientation2 = 90;
+		// this.orientation = Orientation.RIGHT;
+		this.numOfOrientation = 90;
 	}
 
 	public void turnLeft() {
-		this.numOfOrientation2 -=90;
+		if (this.numOfOrientation == 0) {
+			this.numOfOrientation = 360;
+		}
+		this.numOfOrientation -= 90;
 	}
 
 	public void turnRight() {
-		this.numOfOrientation2 +=90;
-	}
-	
-	public void move() {
-		
-	}
-	
-	public Orientation getOrientation() {
-		return orientation;
+		if (this.numOfOrientation == 270) {
+			this.numOfOrientation = -90;
+		}
+		this.numOfOrientation += 90;
 	}
 
-	public void setOrientation(Orientation orientation) {
-		this.orientation = orientation;
+//	public Orientation getOrientation() {
+//		return orientation;
+//	}
+//
+//	public void setOrientation(Orientation orientation) {
+//		this.orientation = orientation;
+//	}
+
+	public Integer getNumOfOrientation() {
+		return numOfOrientation;
 	}
 }
