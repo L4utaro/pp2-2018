@@ -5,11 +5,11 @@ import java.util.List;
 
 import org.json.simple.JSONArray;
 
-import executors.CommandLeft;
-import executors.CommandLight;
-import executors.CommandMove;
-import executors.CommandRight;
-import executors.ICommand;
+import commands.CommandLeft;
+import commands.CommandLight;
+import commands.CommandMove;
+import commands.CommandRight;
+import commands.ICommand;
 import lectors.LectorTxt;
 import main.Constants;
 import validators.ValidatorTxt;
