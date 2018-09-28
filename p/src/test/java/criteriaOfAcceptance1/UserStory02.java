@@ -1,15 +1,15 @@
 package criteriaOfAcceptance1;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import controllers.JsonController;
 import lectors.LectorJson;
+import lectors.implementation.JsonImplementation;
 import main.Constants;
 
 public class UserStory02 {
-	private JsonController jsonController;
+	private JsonImplementation jsonImplementation;
 	/**
 	 * En caso de no encontrar el archivo .json en la ruta
 	 * “C:\ProgramData\actions.json”, se deberá lanzar una excepción notificando que
@@ -28,8 +28,8 @@ public class UserStory02 {
 	 */
 	@Test(expected = IllegalArgumentException.class)
 	public void test02() {
-		this.jsonController = new JsonController(Constants.ROUTE_JSON_INSTRUCTIONS_INVALID_1);
-		this.jsonController.createColecctionOfActions();
+		this.jsonImplementation = new JsonImplementation(Constants.ROUTE_JSON_INSTRUCTIONS_INVALID_1);
+		this.jsonImplementation.createColecctionOfActions();
 	}
 
 	/**
@@ -41,8 +41,8 @@ public class UserStory02 {
 	 */
 	@Test
 	public void test03() {
-		this.jsonController = new JsonController(Constants.ROUTE_JSON_INSTRUCTIONS_2);
-		this.jsonController.createColecctionOfActions();
-		assertEquals(this.jsonController.getActionsCommand().size(), 8);
+		this.jsonImplementation = new JsonImplementation(Constants.ROUTE_JSON_INSTRUCTIONS_2);
+		this.jsonImplementation.createColecctionOfActions();
+		assertEquals(this.jsonImplementation.getActionsCommand().size(), 8);
 	}
 }

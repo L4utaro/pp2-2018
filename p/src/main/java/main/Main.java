@@ -1,11 +1,9 @@
 package main;
 
-import controllers.CreatorController;
-
 public class Main {
 
 	public static void main(String[] args) {
-		CreatorController creator = new CreatorController();
+		GameGenerator creator = new GameGenerator();
 		creator.createMap();
 		creator.createActionsByJson();
 		creator.runActions();

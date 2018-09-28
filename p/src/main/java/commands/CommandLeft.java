@@ -1,6 +1,7 @@
 package commands;
 
 import model.Map;
+import commands.interfaces.ICommand;
 import model.Avatar;
 
 public class CommandLeft implements ICommand {

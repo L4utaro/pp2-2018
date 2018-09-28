@@ -1,4 +1,4 @@
-package controllers;
+package lectors.implementation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,17 +9,17 @@ import commands.CommandLeft;
 import commands.CommandLight;
 import commands.CommandMove;
 import commands.CommandRight;
-import commands.ICommand;
+import commands.interfaces.ICommand;
 import lectors.LectorJson;
 import validators.ValidatorJson;
 
-public class JsonController {
+public class JsonImplementation {
 	private LectorJson lectorJson;
 	private JSONArray actionsJson;
 	private ValidatorJson validatorJson;
 	private List<ICommand> actionsCommand;
 
-	public JsonController(String routeJson) {
+	public JsonImplementation(String routeJson) {
 		this.lectorJson = new LectorJson(routeJson);
 		this.actionsJson = (JSONArray) this.lectorJson.getListOfJson("actions");
 		this.validatorJson = new ValidatorJson();

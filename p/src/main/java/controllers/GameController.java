@@ -2,7 +2,7 @@ package controllers;
 
 import java.util.List;
 
-import commands.ICommand;
+import commands.interfaces.ICommand;
 import model.Map;
 
 public class GameController {
@@ -15,8 +15,9 @@ public class GameController {
 	public void run(List<ICommand> actionsCommand) {
 		for (ICommand command : actionsCommand) {
 			command.executeCommand(this.map);
-		}
+			System.out.println("-----");
 		this.map.printMap();
+		}
 	}
 
 	/** Leer la colección de las acciones. */

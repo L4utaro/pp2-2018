@@ -1,5 +1,6 @@
 package commands;
 
+import commands.interfaces.ICommand;
 import model.Map;
 
 public class CommandLight implements ICommand{

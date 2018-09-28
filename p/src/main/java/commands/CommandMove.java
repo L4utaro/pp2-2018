@@ -2,6 +2,7 @@ package commands;
 
 import java.awt.Point;
 
+import commands.interfaces.ICommand;
 import model.Avatar;
 import model.Map;
 

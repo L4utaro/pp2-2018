@@ -1,4 +1,4 @@
-package controllers;
+package lectors.implementation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,17 +9,17 @@ import commands.CommandLeft;
 import commands.CommandLight;
 import commands.CommandMove;
 import commands.CommandRight;
-import commands.ICommand;
+import commands.interfaces.ICommand;
 import lectors.LectorTxt;
 import validators.ValidatorTxt;
 
-public class TxtController {
+public class TxtImplementation {
 	private LectorTxt lectorTxt;
 	private JSONArray actionsJson;
 	private ValidatorTxt validatorTxt;
 	private List<ICommand> actionsCommand;
 
-	public TxtController(String routeTxt) {
+	public TxtImplementation(String routeTxt) {
 		this.lectorTxt = new LectorTxt(routeTxt);
 		this.lectorTxt.readFile();
 		this.actionsJson = (JSONArray) this.lectorTxt.getListOfJson("actions");
