@@ -1,1 +1,1 @@
-{"Actions":["right","move","left","move","right","move","left","move","light"]}
+{"actions":["right","move","left","move","right","move","left","move","light"]}
