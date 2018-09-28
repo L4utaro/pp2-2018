@@ -44,6 +44,5 @@ public class UserStory02 {
 		this.jsonController = new JsonController(Constants.ROUTE_JSON_INSTRUCTIONS_2);
 		this.jsonController.createColecctionOfActions();
 		assertEquals(this.jsonController.getActionsCommand().size(), 8);
-
 	}
 }

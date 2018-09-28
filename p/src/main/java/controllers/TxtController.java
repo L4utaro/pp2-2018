@@ -11,7 +11,6 @@ import commands.CommandMove;
 import commands.CommandRight;
 import commands.ICommand;
 import lectors.LectorTxt;
-import main.Constants;
 import validators.ValidatorTxt;
 
 public class TxtController {
@@ -20,8 +19,8 @@ public class TxtController {
 	private ValidatorTxt validatorTxt;
 	private List<ICommand> actionsCommand;
 
-	public TxtController() {
-		this.lectorTxt = new LectorTxt(Constants.ROUTE_TXT_INSTRUCTIONS_2);
+	public TxtController(String routeTxt) {
+		this.lectorTxt = new LectorTxt(routeTxt);
 		this.lectorTxt.readFile();
 		this.actionsJson = (JSONArray) this.lectorTxt.getListOfJson("actions");
 		this.validatorTxt = new ValidatorTxt();

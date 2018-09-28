@@ -33,7 +33,7 @@ public class CreatorController {
 	}
 
 	public void createActionsByTxt() {
-		this.txtController = new TxtController();
+		this.txtController = new TxtController(Constants.ROUTE_TXT_INSTRUCTIONS_3);
 		this.txtController.createColecctionOfActions();
 		this.actionsCommand = this.txtController.getActionsCommand();
 	}

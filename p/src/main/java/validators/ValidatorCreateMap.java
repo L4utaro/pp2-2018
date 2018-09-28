@@ -33,6 +33,7 @@ public class ValidatorCreateMap implements IValidator {
 		return true;
 	}
 
+	@SuppressWarnings("unlikely-arg-type")
 	public boolean checkLights() {
 		for(Point pos: this.mapProperties.getElectionMap().getPosLight()) {
 			if(this.map.getBox(pos).getObjectGraphic().equals(LightStatus.OFF)) {

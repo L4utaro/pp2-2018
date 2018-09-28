@@ -65,21 +65,21 @@ public class AddBoxTest {
 		List<Point> posOfLights = new ArrayList<Point>();
 		posOfLights.add(new Point (1,1));
 		this.addBox.addLights(posOfLights, LightStatus.OFF);
-		assertNotNull(this.board.getBox(new Point(1,1)).getObjectGraphic());
+		assertNotNull(this.board.getBox(new Point(1,1)).getLightStatus());
 	}
 	
-//	@Test
-//	public void validateTruePositionsTest() {
-//		this.addBox.addBoxWalk(new Point(3,2));
-//		List<Point> positionsOfStructure = new ArrayList<Point>();
-//		positionsOfStructure.add(new Point (3,2));
-//		assertTrue(this.addBox.validatePositions(positionsOfStructure));
-//	}
-//
-//	@Test
-//	public void validateFalsePositionsTest() {
-//		List<Point> positionsOfStructure = new ArrayList<Point>();
-//		positionsOfStructure.add(new Point (1,1));
-//		assertTrue(this.addBox.validatePositions(positionsOfStructure));
-//	}
+	@Test
+	public void validateTruePositionsTest() {
+		this.addBox.addBoxWalk(new Point(3,2));
+		List<Point> positionsOfStructure = new ArrayList<Point>();
+		positionsOfStructure.add(new Point (3,2));
+		assertTrue(this.addBox.validatePositions(positionsOfStructure));
+	}
+
+	@Test
+	public void validateFalsePositionsTest() {
+		List<Point> positionsOfStructure = new ArrayList<Point>();
+		positionsOfStructure.add(new Point (1,1));
+		assertTrue(this.addBox.validatePositions(positionsOfStructure));
+	}
 }
