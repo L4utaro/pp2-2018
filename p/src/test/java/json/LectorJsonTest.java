@@ -15,7 +15,7 @@ public class LectorJsonTest {
 		assertNotNull(lector.getListOfJson("sd"));
 	}
 
-	@Test(expected=AssertionError.class)
+	@Test(expected=IllegalArgumentException.class)
 	public void getListOfJsonTest2() {
 		LectorJson lector = new LectorJson("asdasd");
 		assertNotNull(lector.getListOfJson("sd"));
