@@ -2,7 +2,6 @@ package criteriaOfAcceptance1;
 
 import static org.junit.Assert.assertEquals;
 
-
 import java.awt.Point;
 
 import org.junit.Test;

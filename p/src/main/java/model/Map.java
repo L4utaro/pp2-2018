@@ -49,8 +49,12 @@ public class Map {
 		return this.board.getAvatarPos();
 	}
 
+	public void setAvatarPos(Point avatarPos) {
+		this.board.setAvatarPos(avatarPos);
+	}
+	
 	public void addBoxObjectGraphic(Point pointBox, IObjectGraphic objectGraphic) {
-		this.board.getBoxes()[pointBox.x] [pointBox.y].setObjectGraphic(objectGraphic);
+		this.board.getBoxes()[pointBox.x-1] [pointBox.y-1].setObjectGraphic(objectGraphic);
 	}
 	
 	public void deleteObjectGraphic(Point position) {

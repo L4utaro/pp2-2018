@@ -1,7 +1,6 @@
 package commands;
 
 import model.Map;
-import enums.Orientation;
 import model.Avatar;
 
 public class CommandLeft implements ICommand {

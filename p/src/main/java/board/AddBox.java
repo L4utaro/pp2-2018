@@ -56,7 +56,7 @@ public class AddBox {
 		for (Point position : posOfLights) {
 			if (!this.validatorBoard.isValidPositionForBox(position)
 					|| !this.validatorBoard.isValidPositionForObjectGraphic(position)) {
-				throw new IllegalArgumentException("It is not a valid box to add an ObjectGraphic");
+				throw new IllegalArgumentException("It is not a valid box to add an Light");
 			}
 			this.board.addBoxLight(position, TypeOfBox.WALK,  light);
 		}
