@@ -3,11 +3,12 @@ package controllers;
 import java.util.List;
 
 import commands.interfaces.ICommand;
+import commands.invoker.InvokerCommand;
 import model.Map;
 
 public class GameController {
 	private Map map;
-	
+
 	public GameController(Map map) {
 		this.map = map;
 	}
@@ -15,11 +16,28 @@ public class GameController {
 	public void run(List<ICommand> actionsCommand) {
 		for (ICommand command : actionsCommand) {
 			command.executeCommand(this.map);
-			System.out.println("-----");
-		this.map.printMap();
+			System.out.println("-----\n");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			this.map.printMap();
 		}
 	}
 
+	public void run2(List<InvokerCommand> invokersCommands) {
+		for (InvokerCommand invokerCommand : invokersCommands) {
+			invokerCommand.executeCommand(this.map);
+			System.out.println("-----\n");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			this.map.printMap();
+		}
+	}
 	/** Leer la colección de las acciones. */
 
 	/** Crear un sleep de un segundo, por cada instrucción que se ejecute. */
