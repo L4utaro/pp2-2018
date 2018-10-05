@@ -26,6 +26,8 @@ public class GameController {
 		}
 	}
 
+	/** Leer la colección de las acciones. */
+	/** Crear un sleep de un segundo, por cada instrucción que se ejecute. */
 	public void run2(List<InvokerCommand> invokersCommands) {
 		for (InvokerCommand invokerCommand : invokersCommands) {
 			invokerCommand.executeCommand(this.map);
@@ -38,15 +40,14 @@ public class GameController {
 			this.map.printMap();
 		}
 	}
-	/** Leer la colección de las acciones. */
-
-	/** Crear un sleep de un segundo, por cada instrucción que se ejecute. */
 
 	/**
 	 * Validar que las acciones o instrucciones, para controlar el movimiento del
 	 * avatar, controle que el avatar pertenezca al camino posible y no salga del
 	 * mismo.
-	 */
+	 */ 
+	//esto lo esta haciendo en el map practicamente, chequear si conviene cambiarlo o no. 
+	
 
 	/**
 	 * Evaluar estado de las luces, si quedó alguna apagada, entonces “perdiste”, en
