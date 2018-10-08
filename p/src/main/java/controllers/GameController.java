@@ -5,12 +5,15 @@ import java.util.List;
 import commands.interfaces.ICommand;
 import commands.invoker.InvokerCommand;
 import model.Map;
+import validators.ValidatorGame;
 
 public class GameController {
 	private Map map;
-
+	private ValidatorGame validatorGame;
+	
 	public GameController(Map map) {
 		this.map = map;
+		this.validatorGame = new ValidatorGame();
 	}
 
 	public void run(List<ICommand> actionsCommand) {
@@ -36,6 +39,11 @@ public class GameController {
 				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
+			}
+			if(this.validatorGame.avatarIsOutOfPathPossible()) {
+				System.out.println();
+			} else if (this.validatorGame.avatarIsOutOfPathPossible()) {
+				
 			}
 			this.map.printMap();
 		}
