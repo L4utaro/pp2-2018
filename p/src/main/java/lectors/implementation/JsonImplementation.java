@@ -10,6 +10,7 @@ import commands.CommandLight;
 import commands.CommandMove;
 import commands.CommandRight;
 import commands.interfaces.ICommand;
+import commands.invoker.InvokerCommand;
 import lectors.LectorJson;
 import validators.ValidatorJson;
 
@@ -18,18 +19,22 @@ public class JsonImplementation {
 	private JSONArray actionsJson;
 	private ValidatorJson validatorJson;
 	private List<ICommand> actionsCommand;
-
+	private List<InvokerCommand> invokerCommands;
+	//aca meti en invoker command
+	
 	public JsonImplementation(String routeJson) {
 		this.lectorJson = new LectorJson(routeJson);
 		this.actionsJson = (JSONArray) this.lectorJson.getListOfJson("actions");
 		this.validatorJson = new ValidatorJson();
 		this.actionsCommand = new ArrayList<ICommand>();
+		this.invokerCommands = new ArrayList<InvokerCommand>();
 	}
 
 	public void createColecctionOfActions() {
 		if (this.validatorJson.validateInstructionsOfJsonArray(this.actionsJson)) {
 			for (int i = 0; i < this.actionsJson.size(); i++) {
 				addAction(actionsJson.get(i).toString());
+				this.invokerCommands.add(new InvokerCommand(this.actionsCommand.get(i)));
 			}
 		}else {
 			throw new IllegalArgumentException("The actions.json contains wrong parameters");
@@ -49,5 +54,9 @@ public class JsonImplementation {
 
 	public List<ICommand> getActionsCommand() {
 		return actionsCommand;
+	}
+
+	public List<InvokerCommand> getInvokerCommands() {
+		return invokerCommands;
 	}
 }
